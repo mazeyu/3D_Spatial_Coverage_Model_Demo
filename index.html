@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="Build/Cesium/Cesium.js"></script>
+    <link href="Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+</head>
+<body>
+<div id="cesiumContainer" style="width: 100%; height: 100%"></div>
+<script>
+    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhMmNiOWMyZi1iMGJiLTQzMTktOTgxYS00YzI4YjFkZDdkYjciLCJpZCI6MTM1MDMsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NjMzODk5NjJ9.u-_U5LSm5v6_sjethJu_TPqdocWGkARX6YS-2xIhGMs';
+    var viewer = new Cesium.Viewer('cesiumContainer');
+
+    var height = 5000;
+    var url = 'Apps/SampleData/models/CesiumAir/Cesium_Air.glb';
+    var position = Cesium.Cartesian3.fromDegrees(-123.0744619, 44.0503706, height);
+    var heading = Cesium.Math.toRadians(135);
+    var pitch = 0;
+    var roll = 0;
+    var hpr = new Cesium.HeadingPitchRoll(heading, pitch, roll);
+    var orientation = Cesium.Transforms.headingPitchRollQuaternion(position, hpr);
+
+
+    var entity = viewer.entities.add({
+        name : url,
+        position : position,
+        orientation : orientation,
+        model : {
+            uri : url,
+            minimumPixelSize : 128,
+            maximumScale : 20000
+        }
+    });
+
+
+    viewer.zoomTo(viewer.entities);
+</script>
+</body>
+</html>
