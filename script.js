@@ -226,6 +226,44 @@ function addAxes(lng, lat, hgt, yaw, pitch, roll, convention) {
 
 }
 
+//
+// function changeQuery() {
+//
+//     let lat = parseFloat(document.getElementById('lat').value);
+//     let lng = parseFloat(document.getElementById('lng').value);
+//     let hgt = parseFloat(document.getElementById('hgt').value);
+//
+//
+//
+//     let size0 = parseFloat(document.getElementById('size').value);
+//     let size1 = parseFloat(document.getElementById('size').value);
+//     let size2 = parseFloat(document.getElementById('size').value);
+//
+//
+//
+//     let newBox = viewer.entities.add({
+//         position: Cesium.Cartesian3.fromDegrees(lng, lat, hgt),
+//         box: {
+//             dimensions: new Cesium.Cartesian3(size0, size1, size2),
+//             material: Cesium.Color.RED.withAlpha(0.5),
+//             outline: true,
+//             outlineColor: Cesium.Color.BLACK
+//         }
+//     });
+//
+//     if (viewer.QueryBox.length > 0) {
+//         viewer.entities.remove(viewer.QueryBox[0]);
+//         viewer.QueryBox = viewer.QueryBox.slice(1, viewer.QueryBox.length);
+//     }
+//     viewer.QueryBox.push(newBox);
+//     viewer.zoomTo(newBox);
+//
+//     document.getElementById('inp').value = lat + " " + lng + " " + hgt + " " + size0;
+//
+//
+// }
+
+
 function displayOneQuery() {
     if (viewer.queryTot === viewer.queryCur) {
         // viewer.entities.remove(viewer.QueryBox[0]);
@@ -240,7 +278,15 @@ function displayOneQuery() {
 
     let hgt = parseFloat(frame[2]);
 
+    // document.getElementById('lat').value = lat;
+    // document.getElementById('lng').value = lng;
+    // document.getElementById('hgt').value = hgt;
+
+
+
     let size0 = parseFloat(frame[3]);
+    // document.getElementById('size').value = size0;
+
     let size1 = parseFloat(frame[4]);
     let size2 = parseFloat(frame[5]);
 
@@ -261,9 +307,9 @@ function displayOneQuery() {
     //         pixelOffset: new Cesium.Cartesian2(0, -9)
     //     }
     // });
-    document.getElementById("ans1").textContent = "Coverage using Alg1: \n" + (ans1 * 100).toFixed(2) + "%";
-    document.getElementById("ans2").textContent = "Coverage using Alg2: \n" + (ans2 * 100).toFixed(2) + "%";
-    document.getElementById("ans3").textContent = "Coverage using Alg3: \n" + (ans3 * 100).toFixed(2) + "%";
+    document.getElementById("ans1").textContent = "Coverage using Volume Coverage Model: \n" + (ans1 * 100).toFixed(2) + "%";
+    document.getElementById("ans2").textContent = "Coverage using Euler-based Directional Coverage Model: \n" + (ans2 * 100).toFixed(2) + "%";
+    document.getElementById("ans3").textContent = "Coverage using Weighted Cell Coverage Model: \n" + (ans3 * 100).toFixed(2) + "%";
 
 
     let newBox = viewer.entities.add({
@@ -299,6 +345,9 @@ function addQuery() {
 
         viewer.queryTot = viewer.queryLines.length - 1;
         viewer.queryCur = 0;
+        if (viewer.QueryBox !== undefined && viewer.QueryBox.length !== 0) {
+            viewer.entities.remove(viewer.QueryBox[0]);
+        }
         viewer.QueryBox = [];
         viewer.timer = window.setInterval("displayOneQuery()",1000);
     };

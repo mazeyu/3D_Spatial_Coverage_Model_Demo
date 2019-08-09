@@ -10,7 +10,7 @@
     <style>
         p.a {
             font-family: Arial, Helvetica, sans-serif;
-            font-size: 30px;
+            font-size: 20px;
         }
     </style>
 
@@ -48,7 +48,7 @@
 
     <div>
         <label> R value </label>
-        <input type="text" value="100" id="R"> </input>
+        <input type="text" value="500" id="R"> </input>
     </div>
 
     <div>
@@ -65,12 +65,33 @@
 
     <input type="file"
            id="query" name="query" onchange="">
+
+<!--    <div>-->
+<!--        <label> Latitude </label>-->
+<!--        <input type="text" value="" id="lat"> </input>-->
+<!--&lt;!&ndash;        <button onclick="changeQuery()"> Change Query </button>&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="text" value="" id="inp"> </input>&ndash;&gt;-->
+
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label> Longitude </label>-->
+<!--        <input type="text" value="" id="lng"> </input>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label> Altitude </label>-->
+<!--        <input type="text" value="" id="hgt"> </input>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label> Size </label>-->
+<!--        <input type="text" value="" id="size"> </input>-->
+<!--    </div>-->
+
 </div>
 
 <div style="width: 50%; float: right">
-    <p class="a" id="ans1">Coverage using Alg1: </p>
-    <p class="a" id="ans2">Coverage using Alg2: </p>
-    <p class="a" id="ans3">Coverage using Alg3: </p>
+    <p class="a" id="ans1">Coverage using Volume Coverage Model: </p>
+    <p class="a" id="ans2">Coverage using Euler-based Directional Coverage Model: </p>
+    <p class="a" id="ans3">Coverage using Weighted Cell Coverage Model: </p>
 
 
 </div>
