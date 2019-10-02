@@ -1,3 +1,5 @@
+// This code is modified atop Cesium's example code
+
 // A simple demo of 3D Tiles feature picking with hover and select behavior
 // Building data courtesy of NYC OpenData portal: http://www1.nyc.gov/site/doitt/initiatives/3d-building.page
 var viewer = new Cesium.Viewer('cesiumContainer', {
@@ -16,7 +18,7 @@ viewer.scene.camera.setView({
 });
 
 // Load the NYC buildings tileset
-var tileset = new Cesium.Cesium3DTileset({url: Cesium.IonResource.fromAssetId(3839)});
+var tileset = new Cesium.Cesium3DTileset({url: Cesium.IonResource.fromAssetId(5741)});
 tileset.style = new Cesium.Cesium3DTileStyle({
     color: {
         conditions: [
@@ -162,12 +164,14 @@ if (Cesium.PostProcessStageLibrary.isSilhouetteSupported(viewer.scene)) {
         Module.HEAPF64.set(rollArray, rollBuffer >> 3);
 
 
-        var lng = pickedFeature.getProperty("longitude") * 180 / 3.141592653589793238;
-        var lat = pickedFeature.getProperty("latitude") * 180 / 3.141592653589793238;
+        var lng = pickedFeature.getProperty("longitude"); // * 180 / 3.141592653589793238;
+        var lat = pickedFeature.getProperty("latitude"); // * 180 / 3.141592653589793238;
         var hgt = pickedFeature.getProperty("height");
 
 
         // Finally, call the function with "number" parameter type for the array (the pointer), and an extra length parameter
+
+        // Calculate
         result = Module.ccall("VCM", "number", ["number", "number", "number", "number", "number",
             "number", "number", "number", "number", "number",
             "number", "number", "number", "number", "number", "number"], [latBuffer, lngBuffer, hgtBuffer, yawBuffer,
@@ -199,6 +203,7 @@ if (Cesium.PostProcessStageLibrary.isSilhouetteSupported(viewer.scene)) {
             viewer.entities.remove(boundingBox);
         }
 
+        // Get the bounding box and display it
         boundingBox = viewer.entities.add({
             name: 'Yellow box outline',
             position: Cesium.Cartesian3.fromDegrees(lng, lat, hgt / 2 + 10),
@@ -229,6 +234,7 @@ if (Cesium.PostProcessStageLibrary.isSilhouetteSupported(viewer.scene)) {
             '<tr><th>Longitude</th><td>' + pickedFeature.getProperty('longitude') * 180 / 3.141592653589793238 + '</td></tr>' +
             '<tr><th>Latitude</th><td>' + pickedFeature.getProperty('latitude') * 180 / 3.141592653589793238 + '</td></tr>' +
             '<tr><th>Height</th><td>' + pickedFeature.getProperty('height') + '</td></tr>' +
+            // display the result of the three models
             '<tr><th>VCM</th><td>' + (100 * result).toFixed(2) + '% </td></tr>' +
             '<tr><th>ECM</th><td>' + (100 * resultECM).toFixed(2) + '% </td></tr>' +
             '<tr><th>WCM</th><td>' + (100 * resultWCM).toFixed(2) + '% </td></tr>' +
@@ -320,6 +326,8 @@ if (Cesium.PostProcessStageLibrary.isSilhouetteSupported(viewer.scene)) {
 }
 
 
+
+// below are all Options
 Sandcastle.addToolbarMenu([{
     text: 'Dataset1',
     onselect: function () {
@@ -507,6 +515,7 @@ Sandcastle.addToolbarMenu([
     },
 ]);
 
+// Some default values
 document.angles = 8;
 document.cells = 8;
 document.R = 50;
