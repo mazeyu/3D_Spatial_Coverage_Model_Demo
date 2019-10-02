@@ -19,7 +19,7 @@ I have to fix the code slightly as a result. So please contact us if you find th
  Currently we provide a small dataset in file *data1.js*.
  The format is like this:
  ~~~
- data1={"lat":{"0":...}, "lng": ..., "hgt": ..., "yaw": ..., "pitch": ..., "roll": ...}
+ data1={"lat":{"0":...}, "lng": ..., "hgt": ..., "yaw": ..., "pitch": ..., "roll": ..., "t": ...}
  ~~~
  If you want to generate your own dataset, please make sure you follow this format.
 
@@ -28,7 +28,7 @@ I have to fix the code slightly as a result. So please contact us if you find th
 The GUI of the tool is like above. 
 You can switch to different datasets through the first menu bar. For interactive querying, the tool enables selecting one of the visible buildings as a geographical region (QR) to measure its spatial coverage in the 3D space. Once defining QR, the coverage is measured using the three coverage measurement models (VCM, ECM, and WCM) and the results are displayed in an information panel that is positioned in the upper-right corner of the window. You can change the parameters of the FOVs and models through the menu bars on the top.
 
-Note that due to the randomness of our algorithm, the results may vary for the same case. But we choose the number of iterations high enough to guarantee that the error is mostly within 1%. If necessary, we can increase this number to increase the accuracy.
+Note that due to the randomness of our algorithm, the results may vary for the same case. But we choose the number of iterations high enough to guarantee that the error is about 1% in average. If necessary, we can increase this number to increase the accuracy.
 
 
 Please refer to the paper for more detail. 
