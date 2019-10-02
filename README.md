@@ -25,7 +25,7 @@ I have to fix the code slightly as a result. So please contact us if you find th
 
 ## Formulation of the Problem
 
-![](FOV.png)
+![](3Dfov.png)
 ### Definition of Aerial Field of View
 Given an aerial image Ij, the aerial field of view fj is represented by the eight parameters acquired at the image capturing time, fj ≡ ⟨lat,lng,hgt,θy,θp,θr,α,R⟩, where lat and lng are the GPS coordinates (i.e., latitude and longitude) of the camera location, hgt is the camera height with respect to the ground, θy, θp, and θr are three rotation angles of the camera pose (θy is the yaw angle rotating around the vertical axis, θp is the pitch angle rotating around the lateral axis, θr is the roll angle rotating around the longitudinal axis), α is the camera visible angle, and R is the maximum visible distance.
 ### Problem Description
