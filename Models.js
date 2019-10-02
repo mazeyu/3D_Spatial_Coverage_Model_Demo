@@ -1585,7 +1585,7 @@ function isDataURI(filename) {
 
 
 
-var wasmBinaryFile = 'VCM.wasm';
+var wasmBinaryFile = 'Models.wasm';
 if (!isDataURI(wasmBinaryFile)) {
   wasmBinaryFile = locateFile(wasmBinaryFile);
 }
