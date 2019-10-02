@@ -1,6 +1,6 @@
 function addFlight(position, yaw, pitch, roll, convention) {
 
-    var url = 'Apps/SampleData/models/CesiumAir/Cesium_Air.glb';
+    var url = 'https://cesiumjs.org/releases/1.62/Apps/SampleData/models/CesiumAir/Cesium_Air.glb';
 
     let q_pre = Cesium.Quaternion.fromHeadingPitchRoll(new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(-90), 0, 0));
 
