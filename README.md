@@ -1,5 +1,5 @@
 
-#A Web-based Tool for 3D Spatial Coverage Measurement
+# A Web-based Tool for 3D Spatial Coverage Measurement
 
 This repository contains source code for the paper *A Web-based Visualization Tool for 3D Spatial Coverage Measurement of Aerial Images*
 
@@ -33,7 +33,7 @@ Note that due to the randomness of our algorithm, the results may vary for the s
 
 Please refer to the paper for more detail. 
 
- ##Citation
+ ## Citation
  If you used this code for your experiments or found it helpful, consider citing the following paper:
  ~~~
  ~~~
