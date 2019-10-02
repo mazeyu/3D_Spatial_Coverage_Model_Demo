@@ -9,7 +9,7 @@ The link of the paper: **to do**
 The link of the demo video: **to do**
 
 ## Prerequisite 
-Since this is a web-based tool, you can directly visit the GitHub Pages: https://mazeyu.github.io/CoverageModel/
+Since this is a web-based tool, you can directly visit the GitHub Pages: https://mazeyu.github.io/3D_Spatial_Coverage_Model_Demo/
 
 Our website depends on CesiumJS library. Currently, it works on released version 1.62. But problems can arise if Cesium has some updates. Actually, recently Cesium change the return 
 value of its API *getProperty("longitude")* and *getProperty("latitude")* from radians to degrees.
